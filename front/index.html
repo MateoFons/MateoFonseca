@@ -9,7 +9,7 @@
     <h1>Retos</h1>
     <h1>Categorias</h1>
     <div id="resultado1"></div>
-    <button onclick="traerInformacionCategory()" >Consultar Categorias</button>
+    <button onclick="traerInformacionCategory()">Consultar Categorias</button>
     <div>
         <input type="text" id="Cname" placeholder="Name">
         <input type="text" id="Cdescription" placeholder="Description">
@@ -21,15 +21,20 @@
 
     <h1>Orthesis</h1>
     <div id="resultado2"></div>
-    <button onclick="traerInformacionOrthesis()">Consultar Orthesis</button>
+    <button onclick="traerInformacionOrtopedic()">Consultar Ortopedic</button>
     <div>
         <input type="text" id="Oname" placeholder="Name">
         <input type="text" id="Obrand" placeholder="Brand">
         <input type="date" id="Oyear" placeholder="Year">
         <input type="text" id="Odescription" placeholder="Description">
-        <select type="category" id="Cname" placegolder="category_id"></select>
+        <select id="select-category"></select>
     </div>
-    <button onclick="guardarInformacionOrthesis()">Guardar Orthesis</button>
+    <button onclick="guardarInformacionOrtopedic()">Guardar Ortopedic</button>
+    <div>
+        <script>
+            window.onload = autoInicioOrtopedic();
+        </script>
+    </div>
     <br><br><br>
    
 

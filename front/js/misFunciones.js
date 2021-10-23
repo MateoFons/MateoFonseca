@@ -1,5 +1,6 @@
 //------------------------------------ Funciones Category ------------------------------------//
 
+
 function traerInformacionCategory(){
     $.ajax({
         url:"http://144.22.225.106:8080/api/Category/all",
@@ -18,7 +19,7 @@ function pintarRespuestaCategory(respuesta){
         myTable+="<tr>";
         myTable+="<td>"+respuesta[i].name+"</td>";
         myTable+="<td>"+respuesta[i].description+"</td>";
-        myTable+="<td> <button onclick=' actualizarInformacionCategory("+respuesta[i].id+")'>Actualizar</button>";
+        myTable+="<td> <button onclick='actualizarInformacionCategory("+respuesta[i].id+")'>Actualizar</button>";
         myTable+="<td> <button onclick='borrarCategory("+respuesta[i].id+")'>Borrar</button>";
         myTable+="</tr>";
     }
@@ -27,7 +28,7 @@ function pintarRespuestaCategory(respuesta){
 }
 
 function guardarInformacionCategory(){
-    let var2 = {
+    let var1 = {
         name:$("#Cname").val(),
         description:$("#Cdescription").val()
         };
@@ -36,7 +37,7 @@ function guardarInformacionCategory(){
         type:'POST',
         contentType: "application/json; charset=utf-8",
         dataType: 'JSON',
-        data: JSON.stringify(var2),
+        data: JSON.stringify(var1),
         success:function(response) {
             console.log(response);
             console.log("Se guardo correctamente");
@@ -95,22 +96,22 @@ function borrarCategory(idElemento){
 }
 
 
-//------------------------------------ Funciones Category ------------------------------------//
+//------------------------------------ Funciones Orthesis ------------------------------------//
 
 
-function traerInformacionOrthesis(){
+function traerInformacionOrtopedic(){
     $.ajax({
-        url:"http://144.22.225.106:8080/api/Orthesis/all",
+        url:"http://144.22.225.106:8080/api/Ortopedic/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
             console.log(respuesta);
-            pintarRespuestaOrthesis(respuesta);
+            pintarRespuestaOrtopedic(respuesta);
         }
     });
 }
 
-function pintarRespuestaOrthesis(respuesta){
+function pintarRespuestaOrtopedic(respuesta){
     let myTable="<table>";
     for(i=0;i<respuesta.length;i++){
         myTable+="<tr>";
@@ -118,24 +119,24 @@ function pintarRespuestaOrthesis(respuesta){
         myTable+="<td>"+respuesta[i].brand+"</td>";
         myTable+="<td>"+respuesta[i].year+"</td>";
         myTable+="<td>"+respuesta[i].description+"</td>";
-        myTable+="<td> <button onclick=' actualizarInformacionOrthesis("+respuesta[i].id+")'>Actualizar</button>";
-        myTable+="<td> <button onclick='borrarOrthesis("+respuesta[i].id+")'>Borrar</button>";
+        myTable+="<td> <button onclick='actualizarInformacionOrtopedic("+respuesta[i].id+")'>Actualizar</button>";
+        myTable+="<td> <button onclick='borrarOrtopedic("+respuesta[i].id+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";
     $("#resultado2").html(myTable);
 }
 
-function guardarInformacionOrthesis(){
+function guardarInformacionOrtopedic(){
     let var2 = {
         name:$("#Oname").val(),
         brand:$("#Obrand").val(),
         year:$("#Oyear").val(),
         description:$("#Odescription").val(),
-        category:$("#OCategory").val()
+        category:$("select-category").val()
         };
-        $.ajax({
-        url:"http://144.22.225.106:8080/api/Orthesis/save",
+    $.ajax({
+        url:"http://144.22.225.106:8080/api/Ortopedic/save",
         type:'POST',
         contentType: "application/json; charset=utf-8",
         dataType: 'JSON',
@@ -153,19 +154,19 @@ function guardarInformacionOrthesis(){
     });
 }
 
-function actualizarInformacionOrthesis(idElemento){
+function actualizarInformacioOrtopedic(idElemento){
     let myData={
         id:idElemento,
         name:$("#Oname").val(),
         brand:$("#Obrand").val(),
         year:$("#Oyear").val(),
         description:$("#Odescription").val(),
-        category:$("#OCategory").val()
+        category:$("#select-category").val()
     };
     console.log(myData);
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://144.22.225.106:8080/api/Orthesis/update",
+        url:"http://144.22.225.106:8080/api/Ortopedic/update",
         type:"PUT",
         data:dataToSend,
         contentType:"application/JSON",
@@ -183,13 +184,13 @@ function actualizarInformacionOrthesis(idElemento){
     });
 }
 
-function borrarOrthesis(idElemento){
+function borrarOrtopedic(idElemento){
     let myData={
         id:idElemento
     };
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://144.22.225.106:8080/api/Orthesis/"+idElemento,
+        url:"http://144.22.225.106:8080/api/Ortopedic/"+idElemento,
         type:"DELETE",
         data:dataToSend,
         contentType:"application/JSON",
@@ -200,4 +201,20 @@ function borrarOrthesis(idElemento){
             alert("Se ha eliminado correctamente")
         }
     });
+}
+
+function autoInicioOrtopedic(){
+    $.ajax({
+        url:"http://144.22.225.106:8080/api/Ortopedic/all",
+        type:"GET",
+        datatype:"JSON",
+        success:function(json){
+            let $select = $("#select-category");
+
+            $.each(json, function(id, name){
+                $select.append('<option value ='+ name.id +'>'+ name.name+'</option>');
+                console.log("select "+name.id);
+            })
+        }
+    })
 }
