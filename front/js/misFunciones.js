@@ -101,3 +101,8 @@ function borrarCategory(idElemento){
         }
     });
 }
+
+
+//------------------------------------ Funciones Ortopedic ------------------------------------//
+
+

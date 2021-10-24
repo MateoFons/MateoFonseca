@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>Reto 3</h1>
-    <h2>Categoria</h2>
+    <h2>Categorías</h2>
     <div id="resultado1"></div>
     <script type="text/javascript">
         window.onload = autoInicioCategory();
@@ -20,5 +20,22 @@
         <input type="text" id="Cdescription" placeholder="Descripción">
     </div>
     <button onclick="guardarInfoCategory()">Guardar Categoría</button>
+    <br><br><br>
+
+
+    <h2>Ortopedicos</h2>
+    <div id="resultado2"></div>
+    <script type="text/javascript">
+        window.onload = autoInicioOrtopedic();
+    </script>
+    <div>
+        <input type="text" id="Oname" placeholder="Nombre">
+        <input type="text" id="Obrand" placeholder="Marca">
+        <input type="date" id="Oyear" placeholder="Año">
+        <input type="text" id="Odescription" placeholder="Descripción">
+        <label>Selecciona la Categoría: </label><select id="select-category"></select>
+    </div>
+    <button onclick="guardarInfoOrtopedic()">Guardar Ortopedico</button>
+    <br><br><br>
 </body>
 </html>
