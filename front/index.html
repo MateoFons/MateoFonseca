@@ -1,44 +1,24 @@
 <!DOCTYPE html>
-<html >
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="js/misFunciones.js"></script>  
-    <title>Retos front</title>
+    <script type="text/javascript" src="js/misFunciones.js"></script>
+    <title>Retos</title>
 </head>
 <body>
-    <h1>Retos</h1>
-    <h1>Categorias</h1>
+    <h1>Reto 3</h1>
+    <h2>Categoria</h2>
     <div id="resultado1"></div>
-    <button onclick="traerInformacionCategory()">Consultar Categorias</button>
+    <script type="text/javascript">
+        window.onload = autoInicioCategory();
+    </script>
     <div>
-        <input type="text" id="Cname" placeholder="Name">
-        <input type="text" id="Cdescription" placeholder="Description">
+        <input type="text" id="Cname" placeholder="Nombre">
+        <input type="text" id="Cdescription" placeholder="Descripción">
     </div>
-    <button onclick="guardarInformacionCategory()">Guardar Categorias</button>
-    <br><br><br>
-
-
-
-    <h1>Orthesis</h1>
-    <div id="resultado2"></div>
-    <button onclick="traerInformacionOrtopedic()">Consultar Ortopedic</button>
-    <div>
-        <input type="text" id="Oname" placeholder="Name">
-        <input type="text" id="Obrand" placeholder="Brand">
-        <input type="date" id="Oyear" placeholder="Year">
-        <input type="text" id="Odescription" placeholder="Description">
-        <select id="select-category"></select>
-    </div>
-    <button onclick="guardarInformacionOrtopedic()">Guardar Ortopedic</button>
-    <div>
-        <script>
-            window.onload = autoInicioOrtopedic();
-        </script>
-    </div>
-    <br><br><br>
-   
-
-
-
+    <button onclick="guardarInfoCategory()">Guardar Categoría</button>
 </body>
 </html>
