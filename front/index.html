@@ -31,11 +31,26 @@
     <div>
         <input type="text" id="Oname" placeholder="Nombre">
         <input type="text" id="Obrand" placeholder="Marca">
-        <input type="date" id="Oyear" placeholder="Año">
+        <input type="number" id="Oyear" placeholder="Año">
         <input type="text" id="Odescription" placeholder="Descripción">
         <label>Selecciona la Categoría: </label><select id="select-category"></select>
     </div>
     <button onclick="guardarInfoOrtopedic()">Guardar Ortopedico</button>
+    <br><br><br>
+
+
+    <h2>Clientes</h2>
+    <div id="resultado3"></div>
+    <script type="text/javascript">
+        window.onload = autoInicioClient();
+    </script>
+    <div>
+        <input type="email" id="CLemail" placeholder="Email">
+        <input type="password" id="CLpassword" placeholder="Contraseña">
+        <input type="text" id="CLname" placeholder="Nombre">
+        <input type="number" id="CLage" placeholder="Edad">
+    </div>
+    <button onclick="guardarInfoClient()">Guardar Cliente</button>
     <br><br><br>
 </body>
 </html>
