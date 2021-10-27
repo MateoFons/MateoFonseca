@@ -24,8 +24,8 @@ function pintarRespuestaCategory(respuesta) {
         myTable += "<tr>";
         myTable += "<td>" + respuesta[i].name + "</td>";
         myTable += "<td>" + respuesta[i].description + "</td>";
-        //myTable += "<td> <button onclick='actualizarInfoCategory(" + respuesta[i].id + ")'><i class='fas fa-sync'></i></button></td>";
-        //myTable += "<td> <button onclick='borrarInfoCategory(" + respuesta[i].id + ")'><i class='fas fa-times-circle'></i></button></td>";
+        myTable += "<td> <button onclick='actualizarInfoCategory(" + respuesta[i].id + ")'><i class='fas fa-sync'></i></button></td>";
+        myTable += "<td> <button onclick='borrarInfoCategory(" + respuesta[i].id + ")'><i class='fas fa-times-circle'></i></button></td>";
         myTable += "</tr>";
     }
     myTable += "</table>";
@@ -55,7 +55,7 @@ function guardarInfoCategory() {
     });
 }
 
-/*function actualizarInfoCategory(idElement) {
+function actualizarInfoCategory(idElement) {
     let var2 = {
         id: idElement,
         name: $("#Cname").val(),
@@ -104,7 +104,7 @@ function borrarInfoCategory(idElement) {
             alert("No se eliminó el registro correctamente");
         }
     });
-}*/
+}
 
 //------------------------------------ Funciones Ortopedic ------------------------------------//
 
@@ -137,8 +137,8 @@ function pintarRespuestaOrtopedic(respuesta) {
         myTable += "<td>" + respuesta[i].year + "</td>";
         myTable += "<td>" + respuesta[i].description + "</td>";
         myTable += "<td>" + respuesta[i].category.name + "</td>";
-        //myTable += "<td> <button onclick='actualizarInfoOrtopedic(" + respuesta[i].id + ")'><i class='fas fa-sync'></i></button></td>";
-        //myTable += "<td> <button onclick='borrarInfoOrtopedic(" + respuesta[i].id + ")'><i class='fas fa-times-circle'></i></button></td>";
+        myTable += "<td> <button onclick='actualizarInfoOrtopedic(" + respuesta[i].id + ")'><i class='fas fa-sync'></i></button></td>";
+        myTable += "<td> <button onclick='borrarInfoOrtopedic(" + respuesta[i].id + ")'><i class='fas fa-times-circle'></i></button></td>";
         myTable += "</tr>";
     }
     myTable += "</table>";
@@ -171,7 +171,7 @@ function guardarInfoOrtopedic() {
     });
 }
 
-/*function actualizarInfoOrtopedic(idElemento) {
+function actualizarInfoOrtopedic(idElemento) {
     let myData = {
         id: idElemento,
         name: $("#Oname").val(),
@@ -219,7 +219,7 @@ function borrarInfoOrtopedic(idElemento) {
             alert("Se ha eliminado correctamente")
         }
     });
-}*/
+}
 
 //------------------------------------ Funciones Client ------------------------------------//
 
@@ -251,8 +251,8 @@ function pintarRespuestaClient(respuesta) {
         myTable += "<td>" + respuesta[i].password + "</td>";
         myTable += "<td>" + respuesta[i].name + "</td>";
         myTable += "<td>" + respuesta[i].age + "</td>";
-        //myTable += "<td> <button onclick='actualizarInfoClient(" + respuesta[i].idClient + ")'><i class='fas fa-sync'></i></button></td>";
-        //myTable += "<td> <button onclick='borrarInfoClient(" + respuesta[i].idClient + ")'><i class='fas fa-times-circle'></i></button></td>";
+        myTable += "<td> <button onclick='actualizarInfoClient(" + respuesta[i].idClient + ")'><i class='fas fa-sync'></i></button></td>";
+        myTable += "<td> <button onclick='borrarInfoClient(" + respuesta[i].idClient + ")'><i class='fas fa-times-circle'></i></button></td>";
         myTable += "</tr>";
     }
     myTable += "</table>";
@@ -286,7 +286,7 @@ function guardarInfoClient() {
     });
 }
 
-/*function actualizarInfoClient(idElemento) {
+function actualizarInfoClient(idElemento) {
     let myData = {
         idClient: idElemento,
         email: $("#Clemail").val(),
@@ -332,7 +332,7 @@ function borrarInfoClient(idElemento) {
             alert("Se ha eliminado correctamente")
         }
     });
-}*/
+}
 
 //------------------------------------ Funciones Message ------------------------------------//
 
@@ -361,8 +361,8 @@ function pintarRespuestaMessage(respuesta) {
         myTable += "<td>" + respuesta[i].messageText + "</td>";
         myTable += "<td>" + respuesta[i].client.name + "</td>";
         myTable += "<td>" + respuesta[i].ortopedic.name + "</td>";
-        //myTable += "<td> <button onclick='actualizarInfoMessage(" + respuesta[i].idMessage + ")'><i class='fas fa-sync'></i></button></td>";
-        //myTable += "<td> <button onclick='borrarInfoMessage(" + respuesta[i].idMessage + ")'><i class='fas fa-times-circle'></i></button></td>";
+        myTable += "<td> <button onclick='actualizarInfoMessage(" + respuesta[i].idMessage + ")'><i class='fas fa-sync'></i></button></td>";
+        myTable += "<td> <button onclick='borrarInfoMessage(" + respuesta[i].idMessage + ")'><i class='fas fa-times-circle'></i></button></td>";
         myTable += "</tr>";
     }
     myTable += "</table>";
@@ -395,7 +395,7 @@ function guardarInfoMessage() {
     });
 }
 
-/*function actualizarInfoMessage(idElemento) {
+function actualizarInfoMessage(idElemento) {
     let myData = {
         idMessage: idElemento,
         messageText: $("#MmessageText").val(),
@@ -439,7 +439,7 @@ function borrarInfoMessage(idElemento) {
             alert("Se ha eliminado correctamente")
         }
     });
-}*/
+}
 
 //------------------------------------ Funciones Reservation ------------------------------------//
 
@@ -470,8 +470,8 @@ function pintarRespuestaReservation(respuesta) {
         myTable += "<td>" + respuesta[i].status + "</td>";
         myTable += "<td>" + respuesta[i].client.name + "</td>";
         myTable += "<td>" + respuesta[i].ortopedic.name + "</td>";
-        //myTable += "<td> <button onclick='actualizarInfoReservation(" + respuesta[i].idReservation + ")'><i class='fas fa-sync'></i></button></td>";
-        //myTable += "<td> <button onclick='borrarInfoReservation(" + respuesta[i].idReservation + ")'><i class='fas fa-times-circle'></i></button></td>";
+        myTable += "<td> <button onclick='actualizarInfoReservation(" + respuesta[i].idReservation + ")'><i class='fas fa-sync'></i></button></td>";
+        myTable += "<td> <button onclick='borrarInfoReservation(" + respuesta[i].idReservation + ")'><i class='fas fa-times-circle'></i></button></td>";
         myTable += "</tr>";
     }
     myTable += "</table>";
@@ -505,7 +505,7 @@ function guardarInfoReservation() {
     });
 }
 
-/*function actualizarInfoReservation(idElemento) {
+function actualizarInfoReservation(idElemento) {
     let myData = {
         idReservation: idElemento,
         startDate: $("#RstartDate").val(),
@@ -551,7 +551,7 @@ function borrarInfoReservation(idElemento) {
             alert("Se ha eliminado correctamente")
         }
     });
-}*/
+}
 
 //------------------------------------ Funciones Score ------------------------------------//
 
@@ -580,8 +580,8 @@ function pintarRespuestaScore(respuesta) {
         myTable += "<td>" + respuesta[i].messageText + "</td>";
         myTable += "<td>" + respuesta[i].stars + "</td>";
         myTable += "<td>" + respuesta[i].reservation.name + "</td>";
-        //myTable += "<td> <button onclick='actualizarInfoScore(" + respuesta[i].idScore + ")'><i class='fas fa-sync'></i></button></td>";
-        //myTable += "<td> <button onclick='borrarInfoScore(" + respuesta[i].idScore + ")'><i class='fas fa-times-circle'></i></button></td>";
+        myTable += "<td> <button onclick='actualizarInfoScore(" + respuesta[i].idScore + ")'><i class='fas fa-sync'></i></button></td>";
+        myTable += "<td> <button onclick='borrarInfoScore(" + respuesta[i].idScore + ")'><i class='fas fa-times-circle'></i></button></td>";
         myTable += "</tr>";
     }
     myTable += "</table>";
@@ -614,7 +614,7 @@ function guardarInfoScore() {
     });
 }
 
-/*function actualizarInfoScore(idElemento) {
+function actualizarInfoScore(idElemento) {
     let myData = {
         idScore: idElemento,
         messageText: $("#SmessageText").val(),
@@ -658,4 +658,4 @@ function borrarInfoScore(idElemento) {
             alert("Se ha eliminado correctamente")
         }
     });
-}*/
+}
