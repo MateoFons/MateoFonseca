@@ -10,21 +10,7 @@ async function loginProcess(event) {
           console.log(`el email es válido`);
           if (passwordValue != "") {
             passwordField.style.backgroundColor = "inherit";
-            /**
-             * llamado del backend usando promesas
-             */
-            sendData(emailValue, passwordValue)
-              .then(function (response) {
-                console.log(`response`, response);
-                return response.json();
-              })
-              .then((convertedJson) => {
-                console.log(`convertedJson`, convertedJson.id);
-              });
-            /**
-             * fin llamado del backend usando promesas
-             */
-  
+
             await sendDataSync(emailValue, passwordValue); //llamado del backend usando async y await
             console.log(`he llamado al servidor`);
             //voy a enviar la información al backend, el email y la contraseña
@@ -43,17 +29,6 @@ async function loginProcess(event) {
     } catch (error) {
       console.log(`se presentó un error inesperado`, error);
     }
-  
-    console.log(`he sido enviado`);
-  }
-  
-  function sendData(email, password) {
-    try {
-      const url = "https://jsonplaceholder.typicode.com/todos/1";
-      return fetch(url);
-    } catch (error) {
-      console.log(`se presentó un error: `, error);
-    }
   }
   
   async function sendDataSync(em, pass) {
@@ -64,7 +39,7 @@ async function loginProcess(event) {
         password: pass,
       };
       const fetchOptions = {
-        method: "POST",
+        method: "GET",
         body: JSON.stringify(body),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -75,46 +50,16 @@ async function loginProcess(event) {
       const response = await fetch(url);
       const convertedJson = await response.json();
       console.log(`convertedJson`, convertedJson);
-      if (convertedJson.token) {
-        console.log(`bienvenido`);
+      if (convertedJson.name != "NO DEFINIDO" && convertedJson.name != "") {
+        console.log(`bienvenido` + convertedJson.name);
+        alert(`Bienvenido ` + convertedJson.name);
+        window.location.reload();
       } else {
         console.log(`las credenciales no son válidas`);
+        alert("El email o la contraseña son incorrectos");
+        window.location.reload();
       }
     } catch (error) {
       console.log(`se presentó un error: `, error);
     }
-  }
-  
-  async function sendPostFake(email, password) {
-    try {
-      const url = "https://jsonplaceholder.typicode.com/posts";
-      const fetchOptions = {
-        method: "POST",
-        body: JSON.stringify({
-          title: email,
-          body: password,
-          userId: 1,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      };
-      const response = await fetch(url, fetchOptions);
-      const responseConverted = await response.json();
-      console.log(`responseConverted`, responseConverted);
-    } catch (error) {
-      console.log(`se presentó un error`);
-    }
-  }
-  
-  function onClickForm(event) {
-    console.log(`event`, event);
-    let num1 = 1;
-    let num2 = 3;
-    let result = num1 + num2;
-    console.log(`result`, result);
-  }
-  
-  function onClickPassword(event) {
-    console.log(`he sido llamado`);
   }

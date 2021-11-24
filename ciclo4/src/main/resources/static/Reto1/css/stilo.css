@@ -64,10 +64,6 @@ body {
     text-decoration: underline;
 }
 
-.testiomonial {
-    bottom: 10px
-}
-
 @media (max-width: 575.98px) {
     .p-6 {
         padding: 2rem;
